@@ -1,50 +1,2952 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Terms of Use — Eluven</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eluven — Terms of Use</title>
+  <meta name="description" content="The terms that apply when using Eluven to explore Scripture, prayer, guidance and sermons." />
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+/* HOMEPAGE COMPONENT CSS INSERTED */
+
+    :root {
+      --bg: #ffffff;
+      --text: #111111;
+      --muted: #555555;
+      --pink: #ff2a8a;
+      --blue: #2c7dff;
+      --green: #c9e997;
+      --red: #9e2f25;
+      --cream: #f4efe7;
+      --black: #050505;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      background: #000;
-      color: #fff;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      padding: 40px 20px;
-      max-width: 700px;
+      margin: 0;
+      font-family: Inter, Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      padding: 24px 0;
+      background: rgba(255,255,255,.82);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(0,0,0,0);
+      transition: .2s ease;
+    }
+
+    .nav.scrolled {
+      padding: 14px 0;
+      border-bottom-color: rgba(0,0,0,.08);
+    }
+
+    .nav-inner {
+      width: min(1180px, calc(100% - 56px));
       margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .menu {
+      width: 22px;
+      height: 16px;
+      display: grid;
+      gap: 5px;
+    }
+
+    .menu span {
+      height: 2px;
+      background: #111;
+      border-radius: 999px;
+    }
+
+    .brand {
+      font-size: 18px;
+      font-weight: 900;
+      letter-spacing: -.06em;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .nav-right a {
+      opacity: .85;
+    }
+
+    .app-icon {
+      width: 30px;
+      height: 30px;
+      border-radius: 9px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(145deg, var(--blue), #0d2c78);
+      color: white;
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .hero {
+      min-height: 92vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: stretch;
+      padding-top: 76px;
+    }
+
+    .hero-left {
+      padding: clamp(70px, 12vw, 170px) 9vw 80px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .hero h1 {
+      margin: 0;
+      max-width: 520px;
+      font-size: clamp(52px, 7vw, 112px);
+      line-height: .88;
+      letter-spacing: -.088em;
+      font-weight: 500;
+    }
+
+    .hero-arrow {
+      margin-top: 110px;
+      font-size: 52px;
+      line-height: 1;
+      font-weight: 500;
+      transform: rotate(90deg);
+      width: 58px;
+    }
+
+    .hero-right {
+      position: relative;
+      min-height: 670px;
+      background:
+        radial-gradient(circle at 54% 40%, rgba(44,125,255,.24), transparent 18rem),
+        #0a0a0a;
+      overflow: hidden;
+    }
+
+    .hero-right img {
+      position: absolute;
+      right: 11%;
+      top: 8%;
+      width: min(430px, 80%);
+      filter: drop-shadow(0 26px 70px rgba(0,0,0,.5));
+      transform: rotate(3deg);
+      animation: floatPhone 5s ease-in-out infinite alternate;
+    }
+
+    @keyframes floatPhone {
+      from { transform: rotate(3deg) translateY(0); }
+      to { transform: rotate(0deg) translateY(-18px); }
+    }
+
+    .hero-over {
+      position: absolute;
+      right: 7%;
+      bottom: 10%;
+      color: white;
+      font-size: clamp(44px, 5.5vw, 92px);
+      line-height: .9;
+      letter-spacing: -.08em;
+      font-weight: 600;
+      text-align: right;
+      max-width: 460px;
+    }
+
+    .statement {
+      padding: 85px 24px 78px;
+      text-align: center;
+    }
+
+    .statement h2 {
+      margin: 0 auto;
+      max-width: 930px;
+      font-size: clamp(35px, 4.6vw, 68px);
+      line-height: .98;
+      letter-spacing: -.07em;
+      font-weight: 500;
+    }
+
+    .statement .pink {
+      color: var(--pink);
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      min-height: 720px;
+    }
+
+    .split-image {
+      height: 720px;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      background: var(--cream);
+      position: relative;
+    }
+
+    .split-image.dark {
+      background: #070707;
+    }
+
+    .split-image.blue {
+      background:
+        radial-gradient(circle at 50% 44%, rgba(44,125,255,.42), transparent 22rem),
+        #07142a;
+    }
+
+    .split-image.green {
+      background:
+        radial-gradient(circle at 50% 40%, rgba(201,233,151,.42), transparent 22rem),
+        #eef8d5;
+    }
+
+    .split-image.red {
+      background:
+        radial-gradient(circle at 56% 45%, rgba(158,47,37,.38), transparent 21rem),
+        #160b0a;
+    }
+
+    .split-image img {
+      width: min(380px, 76%);
+      max-height: 690px;
+      object-fit: contain;
+      filter: drop-shadow(0 32px 90px rgba(0,0,0,.46));
+      transform: translateY(35px);
+      opacity: 0;
+    }
+
+    .split-image img.in-view {
+      transform: translateY(0);
+      opacity: 1;
+      transition: .8s ease;
+    }
+
+    .split-copy {
+      padding: 80px 9vw;
+      max-width: 580px;
+    }
+
+    .split-copy h3 {
+      margin: 0;
+      font-size: clamp(32px, 3.1vw, 54px);
+      line-height: .98;
+      letter-spacing: -.07em;
+      font-weight: 500;
+    }
+
+    .split-copy p {
+      margin: 18px 0 0;
+      max-width: 330px;
+      color: #333;
+      font-size: 16px;
+      line-height: 1.58;
+      letter-spacing: -.025em;
+    }
+
+    .link-arrow {
+      display: inline-block;
+      margin-top: 26px;
+      font-size: 17px;
+      font-weight: 600;
+      letter-spacing: -.04em;
+    }
+
+    .wide-copy {
+      padding: 94px 9vw;
+    }
+
+    .wide-copy p {
+      margin: 0;
+      max-width: 1180px;
+      font-size: clamp(27px, 3.3vw, 54px);
+      line-height: 1.08;
+      letter-spacing: -.075em;
+      font-weight: 500;
+    }
+
+    .wide-copy a {
+      color: var(--pink);
+    }
+
+    .screens {
+      padding: 80px 0 90px;
+      overflow: hidden;
+      background: white;
+    }
+
+    .screens-head {
+      width: min(1180px, calc(100% - 56px));
+      margin: 0 auto 44px;
+      display: grid;
+      grid-template-columns: .85fr 1fr;
+      gap: 40px;
+      align-items: end;
+    }
+
+    .screens-head small {
+      display: block;
+      text-transform: uppercase;
+      font-size: 12px;
+      letter-spacing: .1em;
+      margin-bottom: 12px;
+      color: #444;
+      font-weight: 700;
+    }
+
+    .screens-head h2 {
+      margin: 0;
+      font-size: clamp(36px, 4.6vw, 70px);
+      line-height: .92;
+      letter-spacing: -.08em;
+      font-weight: 500;
+    }
+
+    .screens-head p {
+      margin: 0;
+      color: #333;
+      font-size: 17px;
+      line-height: 1.6;
+      max-width: 520px;
+    }
+
+    .marquee {
+      display: flex;
+      gap: 22px;
+      width: max-content;
+      animation: marquee 38s linear infinite;
+    }
+
+    .marquee:hover {
+      animation-play-state: paused;
+    }
+
+    @keyframes marquee {
+      to { transform: translateX(-50%); }
+    }
+
+    .screen-card {
+      width: 260px;
+      flex: 0 0 auto;
+      border-radius: 42px;
+      overflow: hidden;
+      background: #050505;
+      box-shadow: 0 18px 60px rgba(0,0,0,.18);
+    }
+
+    .screen-card img {
+      width: 100%;
+    }
+
+    .download {
+      padding: 110px 24px 86px;
+      text-align: center;
+    }
+
+    .download h2 {
+      margin: 0;
+      font-size: clamp(30px, 3.3vw, 54px);
+      line-height: 1;
+      letter-spacing: -.07em;
+      font-weight: 500;
+    }
+
+    .store-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 18px;
+      flex-wrap: wrap;
+    }
+
+    .store {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 38px;
+      padding: 0 16px;
+      border-radius: 8px;
+      background: #050505;
+      color: white;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: -.02em;
+    }
+
+    footer {
+      padding: 50px 24px 70px;
+      text-align: center;
+    }
+
+    .footer-grid {
+      width: min(760px, 100%);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 28px;
+      text-align: left;
+      font-size: 12px;
+      line-height: 1.8;
+    }
+
+    .footer-grid strong {
+      display: block;
+      margin-bottom: 8px;
+      color: #111;
+      font-size: 12px;
+    }
+
+    .footer-grid a {
+      display: block;
+      color: #555;
+    }
+
+    .socials {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin: 46px 0 20px;
+    }
+
+    .socials span {
+      width: 20px;
+      height: 20px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      background: #111;
+      color: white;
+      font-size: 10px;
+      font-weight: 900;
+    }
+
+    .copyright {
+      color: #777;
+      font-size: 11px;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+    }
+
+    .reveal.in-view {
+      opacity: 1;
+      transform: translateY(0);
+      transition: .7s ease;
+    }
+
+    @media (max-width: 900px) {
+      .hero,
+      .split,
+      .screens-head {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-left {
+        padding: 120px 28px 60px;
+      }
+
+      .hero-arrow {
+        margin-top: 70px;
+      }
+
+      .hero-right {
+        min-height: 560px;
+      }
+
+      .split-image {
+        height: 620px;
+      }
+
+      .split-copy {
+        padding: 70px 28px;
+      }
+
+      .wide-copy {
+        padding: 74px 28px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .nav-inner {
+        width: calc(100% - 28px);
+      }
+
+      .brand {
+        font-size: 16px;
+      }
+
+      .nav-right a:not(.keep-mobile) {
+        display: none;
+      }
+
+      .hero h1 {
+        font-size: clamp(48px, 16vw, 72px);
+      }
+
+      .hero-right {
+        min-height: 500px;
+      }
+
+      .hero-right img {
+        width: 310px;
+        right: 50%;
+        transform: translateX(50%) rotate(3deg);
+      }
+
+      .hero-over {
+        font-size: 50px;
+        right: 24px;
+        bottom: 34px;
+      }
+
+      .statement {
+        padding: 64px 22px;
+      }
+
+      .split-image {
+        height: 520px;
+      }
+
+      .screen-card {
+        width: 220px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+    }
+  
+    /* Refined Instagram-inspired typography and spacing */
+    .brand {
+      gap: 10px;
+      align-items: center;
+    }
+
+    .brand img {
+      width: 31px;
+      height: 31px;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+
+    .hero h1 {
+      font-weight: 600;
+      max-width: 520px;
+    }
+
+    .statement h2 {
+      max-width: 940px;
+      font-size: clamp(38px, 4.5vw, 70px);
+      font-weight: 500;
+      letter-spacing: -.072em;
+    }
+
+    .split {
+      min-height: 760px;
+    }
+
+    .split-copy {
+      padding: 80px 8vw;
+      max-width: 650px;
+    }
+
+    .split-copy h3 {
+      font-size: clamp(62px, 6.7vw, 124px);
+      line-height: .88;
+      letter-spacing: -.088em;
+      font-weight: 500;
+      max-width: 620px;
+    }
+
+    .split-copy p {
+      max-width: 560px;
+      margin-top: 30px;
+      font-size: clamp(25px, 2.7vw, 42px);
+      line-height: 1.33;
+      letter-spacing: -.062em;
+      color: #24272d;
+      font-weight: 400;
+    }
+
+    .link-arrow {
+      margin-top: 48px;
+      font-size: clamp(30px, 3vw, 48px);
+      letter-spacing: -.075em;
+      font-weight: 500;
+    }
+
+    .wide-copy {
+      padding: 110px 9vw;
+    }
+
+    .wide-copy p {
+      max-width: 1280px;
+      font-size: clamp(36px, 4.6vw, 78px);
+      line-height: 1.04;
+      font-weight: 500;
+    }
+
+    .download {
+      padding-top: 116px;
+    }
+
+    .download h2 {
+      font-size: clamp(34px, 3.7vw, 62px);
+      font-weight: 500;
+    }
+
+    .store {
+      min-height: 42px;
+      padding: 0 18px;
+      font-size: 14px;
+      border-radius: 9px;
+    }
+
+    footer {
+      padding: 70px 24px 76px;
+    }
+
+    .footer-grid {
+      width: min(1280px, calc(100% - 80px));
+      display: grid;
+      grid-template-columns: 1.1fr 1.1fr 1.25fr 1.3fr 1fr 1fr;
+      gap: 50px;
+      text-align: left;
+      font-size: 20px;
       line-height: 1.7;
     }
-    h1 { font-size: 32px; margin-bottom: 32px; }
-    h2 { font-size: 20px; margin-top: 32px; margin-bottom: 8px; }
-    p { font-size: 16px; color: rgba(255,255,255,0.8); margin-bottom: 16px; }
-    a { color: #fff; }
+
+    .footer-grid strong {
+      font-size: 24px;
+      line-height: 1.2;
+      font-weight: 500;
+      letter-spacing: -.05em;
+      margin-bottom: 18px;
+    }
+
+    .footer-grid a {
+      color: #9c9c9c;
+      font-size: 18px;
+      letter-spacing: -.035em;
+    }
+
+    .footer-grid a:hover {
+      color: #111;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #111;
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: -.055em;
+      margin-bottom: 14px;
+    }
+
+    .footer-logo img {
+      width: 34px;
+      height: 34px;
+      border-radius: 9px;
+    }
+
+    .socials {
+      margin: 86px 0 70px;
+      gap: 16px;
+    }
+
+    .socials a {
+      width: 42px;
+      height: 42px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      background: #000;
+      color: #fff;
+      font-size: 18px;
+      font-weight: 800;
+      transition: transform .2s ease;
+    }
+
+    .socials a:hover {
+      transform: translateY(-3px);
+    }
+
+    .socials svg {
+      width: 21px;
+      height: 21px;
+      fill: currentColor;
+    }
+
+    .copyright {
+      color: #9c9c9c;
+      font-size: 16px;
+      display: flex;
+      justify-content: center;
+      gap: 36px;
+      flex-wrap: wrap;
+    }
+
+    .copyright a {
+      color: #9c9c9c;
+    }
+
+    @media (max-width: 1100px) {
+      .footer-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .split-copy h3 {
+        font-size: clamp(56px, 8vw, 96px);
+      }
+
+      .split-copy p {
+        font-size: clamp(24px, 3.3vw, 36px);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .split-copy {
+        max-width: none;
+      }
+
+      .split-copy h3 {
+        max-width: 760px;
+      }
+
+      .split-copy p {
+        max-width: 720px;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .brand img {
+        width: 28px;
+        height: 28px;
+      }
+
+      .split-copy h3 {
+        font-size: clamp(52px, 16vw, 78px);
+      }
+
+      .split-copy p {
+        font-size: clamp(22px, 7vw, 31px);
+        max-width: 100%;
+      }
+
+      .link-arrow {
+        font-size: 30px;
+      }
+
+      .wide-copy p {
+        font-size: clamp(31px, 9vw, 50px);
+      }
+
+      .footer-grid {
+        width: min(100% - 48px, 1280px);
+        grid-template-columns: 1fr;
+        text-align: left;
+      }
+
+      .footer-grid strong {
+        font-size: 23px;
+      }
+
+      .footer-grid a {
+        font-size: 18px;
+      }
+
+      .socials {
+        margin-top: 54px;
+      }
+
+      .copyright {
+        font-size: 14px;
+        gap: 18px;
+      }
+    }
+
+  
+    /* Step 1 font fix for feature sections */
+    .split-copy h3 {
+      font-size: 80px !important;
+      line-height: .9 !important;
+      letter-spacing: -.075em !important;
+      font-weight: 500 !important;
+      max-width: 620px !important;
+    }
+
+    .split-copy p {
+      font-size: 32px !important;
+      line-height: 1.32 !important;
+      letter-spacing: -.055em !important;
+      max-width: 620px !important;
+      color: #24272d !important;
+    }
+
+    @media (max-width: 760px) {
+      .split-copy h3 {
+        font-size: 64px !important;
+      }
+
+      .split-copy p {
+        font-size: 27px !important;
+      }
+    }
+
+    @media (max-width: 430px) {
+      .split-copy h3 {
+        font-size: 52px !important;
+      }
+
+      .split-copy p {
+        font-size: 24px !important;
+      }
+    }
+
+  
+    /* Step 2: prevent feature section text from breaking too early */
+    .split-copy {
+      max-width: none !important;
+      width: 100% !important;
+      padding-left: clamp(48px, 5vw, 96px) !important;
+      padding-right: clamp(48px, 5vw, 96px) !important;
+    }
+
+    .split-copy h3 {
+      max-width: 760px !important;
+    }
+
+    .split-copy p {
+      max-width: 760px !important;
+    }
+
+    .split-copy .link-arrow {
+      max-width: 760px !important;
+    }
+
+    @media (max-width: 900px) {
+      .split-copy {
+        padding-left: 28px !important;
+        padding-right: 28px !important;
+      }
+
+      .split-copy h3,
+      .split-copy p,
+      .split-copy .link-arrow {
+        max-width: 820px !important;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .split-copy {
+        padding-left: 24px !important;
+        padding-right: 24px !important;
+      }
+    }
+
+  
+    /* Step 3: make the main statement section match Instagram-style scale */
+    .statement {
+      min-height: 520px !important;
+      padding: 120px 24px 110px !important;
+      display: grid !important;
+      place-items: center !important;
+      background: #fff !important;
+    }
+
+    .statement h2 {
+      max-width: 1480px !important;
+      font-size: clamp(58px, 5.7vw, 116px) !important;
+      line-height: 1.03 !important;
+      letter-spacing: -.078em !important;
+      font-weight: 500 !important;
+      color: #1f2228 !important;
+      text-align: center !important;
+    }
+
+    .statement .pink {
+      background: linear-gradient(90deg, #ff7a00, #ff2a8a 45%, #c800ff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent !important;
+      white-space: nowrap;
+    }
+
+    @media (max-width: 900px) {
+      .statement {
+        min-height: 430px !important;
+        padding: 92px 24px !important;
+      }
+
+      .statement h2 {
+        max-width: 820px !important;
+        font-size: clamp(44px, 8vw, 72px) !important;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .statement h2 {
+        font-size: clamp(36px, 11vw, 54px) !important;
+      }
+
+      .statement .pink {
+        white-space: normal;
+      }
+    }
+
+  
+    /* Step 4: make statement font lighter, closer to Instagram style */
+    .statement h2 {
+      font-weight: 400 !important;
+      letter-spacing: -.085em !important;
+      color: #1f2228 !important;
+    }
+
+    .statement .pink {
+      font-weight: 400 !important;
+    }
+
+  
+    /* Font update: Instagram-like Helvetica stack */
+    body {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+    }
+
+    .statement h2,
+    .split-copy h3,
+    .wide-copy p,
+    .download h2,
+    .hero h1 {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+      font-weight: 400 !important;
+      letter-spacing: -0.075em !important;
+    }
+
+    .split-copy p,
+    .link-arrow,
+    .footer-grid,
+    .footer-grid a,
+    .footer-grid strong,
+    .copyright {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+    }
+
+    .split-copy h3 {
+      font-size: 80px !important;
+      line-height: .9 !important;
+    }
+
+    .split-copy p {
+      font-size: 32px !important;
+      line-height: 1.32 !important;
+      letter-spacing: -0.055em !important;
+      font-weight: 400 !important;
+    }
+
+    .statement h2 {
+      font-weight: 400 !important;
+      letter-spacing: -0.078em !important;
+    }
+
+    @media (max-width: 760px) {
+      .split-copy h3 {
+        font-size: 64px !important;
+      }
+
+      .split-copy p {
+        font-size: 27px !important;
+      }
+    }
+
+    @media (max-width: 430px) {
+      .split-copy h3 {
+        font-size: 52px !important;
+      }
+
+      .split-copy p {
+        font-size: 24px !important;
+      }
+    }
+
+  
+    /* Step 5: Instagram-style readable feature copy rhythm */
+    .split-copy {
+      max-width: none !important;
+      padding-left: clamp(58px, 6vw, 110px) !important;
+      padding-right: clamp(58px, 6vw, 110px) !important;
+    }
+
+    .split-copy h3 {
+      font-size: 80px !important;
+      line-height: .93 !important;
+      letter-spacing: -.078em !important;
+      font-weight: 400 !important;
+      max-width: 560px !important;
+    }
+
+    .split-copy p {
+      font-size: 32px !important;
+      line-height: 1.38 !important;
+      letter-spacing: -.055em !important;
+      font-weight: 400 !important;
+      max-width: 610px !important;
+      margin-top: 32px !important;
+      color: #24272d !important;
+    }
+
+    .split-copy .link-arrow {
+      font-size: 48px !important;
+      line-height: 1 !important;
+      letter-spacing: -.075em !important;
+      font-weight: 400 !important;
+      margin-top: 54px !important;
+      max-width: 610px !important;
+    }
+
+    @media (max-width: 900px) {
+      .split-copy {
+        padding-left: 36px !important;
+        padding-right: 36px !important;
+      }
+
+      .split-copy h3 {
+        max-width: 680px !important;
+        font-size: 72px !important;
+      }
+
+      .split-copy p {
+        max-width: 720px !important;
+        font-size: 30px !important;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .split-copy {
+        padding-left: 24px !important;
+        padding-right: 24px !important;
+      }
+
+      .split-copy h3 {
+        font-size: 56px !important;
+        max-width: 360px !important;
+      }
+
+      .split-copy p {
+        font-size: 24px !important;
+        max-width: 360px !important;
+      }
+
+      .split-copy .link-arrow {
+        font-size: 32px !important;
+      }
+    }
+
+  
+    /* Step 6: Instagram-style split section proximity and line breaks */
+    .split {
+      grid-template-columns: 1fr 1fr !important;
+      min-height: 720px !important;
+      align-items: stretch !important;
+    }
+
+    .split-image {
+      height: 720px !important;
+      width: 100% !important;
+    }
+
+    .split-copy {
+      align-self: center !important;
+      justify-self: start !important;
+      padding: 0 0 0 clamp(70px, 8vw, 150px) !important;
+      max-width: 620px !important;
+      width: 100% !important;
+    }
+
+    .split.alt .split-copy,
+    .split:nth-of-type(4) .split-copy,
+    .split:nth-of-type(6) .split-copy {
+      justify-self: end !important;
+      padding: 0 clamp(70px, 8vw, 150px) 0 0 !important;
+    }
+
+    .split-copy h3 {
+      font-size: 80px !important;
+      line-height: .92 !important;
+      letter-spacing: -.078em !important;
+      font-weight: 400 !important;
+      max-width: 520px !important;
+      margin: 0 !important;
+    }
+
+    .split-copy p {
+      font-size: 32px !important;
+      line-height: 1.42 !important;
+      letter-spacing: -.055em !important;
+      font-weight: 400 !important;
+      max-width: 530px !important;
+      margin-top: 34px !important;
+    }
+
+    .split-copy .link-arrow {
+      font-size: 48px !important;
+      line-height: 1 !important;
+      letter-spacing: -.075em !important;
+      font-weight: 400 !important;
+      margin-top: 56px !important;
+    }
+
+    /* Specific controlled breaks to mirror the reference rhythm */
+    .split-copy h3 .break {
+      display: block;
+    }
+
+    @media (min-width: 901px) {
+      .split-copy h3 {
+        word-break: normal !important;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .split {
+        grid-template-columns: 1fr !important;
+        min-height: auto !important;
+      }
+
+      .split-image {
+        height: 620px !important;
+      }
+
+      .split-copy,
+      .split.alt .split-copy,
+      .split:nth-of-type(4) .split-copy,
+      .split:nth-of-type(6) .split-copy {
+        justify-self: start !important;
+        padding: 70px 28px !important;
+        max-width: none !important;
+      }
+
+      .split-copy h3 {
+        max-width: 680px !important;
+        font-size: 72px !important;
+      }
+
+      .split-copy p {
+        max-width: 680px !important;
+        font-size: 30px !important;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .split-image {
+        height: 520px !important;
+      }
+
+      .split-copy {
+        padding: 64px 24px !important;
+      }
+
+      .split-copy h3 {
+        font-size: 56px !important;
+        max-width: 360px !important;
+      }
+
+      .split-copy p {
+        font-size: 24px !important;
+        max-width: 360px !important;
+      }
+
+      .split-copy .link-arrow {
+        font-size: 32px !important;
+      }
+    }
+
+  
+    /* Step 7: add clean Instagram-like spacing between feature sections */
+    .split {
+      margin: 0 !important;
+      padding: 120px 0 !important;
+      min-height: auto !important;
+      background: #fff !important;
+    }
+
+    .split + .split {
+      margin-top: 0 !important;
+    }
+
+    .split-image {
+      height: 680px !important;
+    }
+
+    .split-copy {
+      align-self: center !important;
+    }
+
+    /* Keep the white editorial spacing around wide text sections */
+    .wide-copy {
+      padding-top: 135px !important;
+      padding-bottom: 135px !important;
+      background: #fff !important;
+    }
+
+    /* Add a little more space after the statement before features begin */
+    .statement {
+      margin-bottom: 30px !important;
+    }
+
+    @media (max-width: 900px) {
+      .split {
+        padding: 80px 0 !important;
+      }
+
+      .split-image {
+        height: 560px !important;
+      }
+
+      .wide-copy {
+        padding-top: 90px !important;
+        padding-bottom: 90px !important;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .split {
+        padding: 58px 0 !important;
+      }
+
+      .split-image {
+        height: 500px !important;
+      }
+
+      .wide-copy {
+        padding-top: 70px !important;
+        padding-bottom: 70px !important;
+      }
+    }
+
+  
+    /* Step 8: make Explore the Bible spacing match Guidance */
+    .split.alt {
+      grid-template-columns: 1fr 1fr !important;
+    }
+
+    .split.alt .split-copy {
+      justify-self: end !important;
+      width: 100% !important;
+      max-width: 620px !important;
+      padding: 0 80px 0 0 !important;
+    }
+
+    .split.alt .split-image {
+      justify-self: start !important;
+      margin-left: 0 !important;
+    }
+
+    .split.alt .split-copy h3 {
+      max-width: 520px !important;
+    }
+
+    .split.alt .split-copy p {
+      max-width: 530px !important;
+    }
+
+    .split.alt .split-copy .link-arrow {
+      max-width: 530px !important;
+    }
+
+    @media (max-width: 900px) {
+      .split.alt {
+        grid-template-columns: 1fr !important;
+      }
+
+      .split.alt .split-copy {
+        justify-self: start !important;
+        max-width: none !important;
+        padding: 70px 28px !important;
+      }
+
+      .split.alt .split-image {
+        justify-self: stretch !important;
+      }
+    }
+
+  
+    /* Move only Explore the Bible text closer to its image */
+    .split.alt .split-copy {
+      transform: translateX(220px) !important;
+    }
+
+    @media (max-width: 1200px) {
+      .split.alt .split-copy {
+        transform: translateX(120px) !important;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .split.alt .split-copy {
+        transform: none !important;
+      }
+    }
+
+  
+    /* Corrected: move ONLY the Explore the Bible text block closer to its image */
+    .explore-section .split-copy {
+      transform: translateX(clamp(180px, 20vw, 420px)) !important;
+    }
+
+    @media (max-width: 1200px) {
+      .explore-section .split-copy {
+        transform: translateX(160px) !important;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .explore-section .split-copy {
+        transform: none !important;
+      }
+    }
+
+  
+    /* Make the first wide statement match the Instagram guide-style block */
+    .wide-copy.guide-style {
+      padding: 135px 9vw 150px !important;
+      text-align: left !important;
+      background: #fff !important;
+    }
+
+    .wide-copy.guide-style p {
+      max-width: 1500px !important;
+      margin: 0 !important;
+      font-size: clamp(42px, 4vw, 70px) !important;
+      line-height: 1.18 !important;
+      letter-spacing: -0.072em !important;
+      font-weight: 400 !important;
+      color: #1f2228 !important;
+    }
+
+    .wide-copy.guide-style p a {
+      background: linear-gradient(90deg, #ff7a00, #ff2a8a 45%, #c800ff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent !important;
+      white-space: nowrap;
+    }
+
+    .wide-copy.guide-style .guide-link {
+      display: inline-block;
+      margin-top: 72px;
+      font-size: clamp(30px, 2.8vw, 48px);
+      line-height: 1;
+      letter-spacing: -0.075em;
+      font-weight: 400;
+      color: #111;
+    }
+
+    @media (max-width: 900px) {
+      .wide-copy.guide-style {
+        padding: 90px 28px 105px !important;
+      }
+
+      .wide-copy.guide-style p {
+        font-size: clamp(34px, 7vw, 54px) !important;
+        line-height: 1.12 !important;
+      }
+
+      .wide-copy.guide-style .guide-link {
+        margin-top: 44px;
+        font-size: 32px;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .wide-copy.guide-style {
+        padding: 76px 24px 86px !important;
+      }
+
+      .wide-copy.guide-style p {
+        font-size: clamp(30px, 9vw, 42px) !important;
+      }
+
+      .wide-copy.guide-style p a {
+        white-space: normal;
+      }
+    }
+
+  
+    /* Match the second wide copy block to the Instagram guide-style section */
+    .wide-copy.verse-style {
+      padding-top: 135px !important;
+      padding-bottom: 150px !important;
+    }
+
+  
+    /* Match the language wide copy block to the Instagram guide-style section */
+    .wide-copy.language-style {
+      padding-top: 135px !important;
+      padding-bottom: 150px !important;
+    }
+
+  
+    /* Hero refinement: match Instagram-style hero typography and animated scroll arrow */
+    .hero-over {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+      font-size: clamp(72px, 6.2vw, 116px) !important;
+      line-height: .95 !important;
+      letter-spacing: -0.075em !important;
+      font-weight: 400 !important;
+      color: #fff !important;
+      max-width: 680px !important;
+      text-align: right !important;
+    }
+
+    .hero h1 {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+      font-weight: 400 !important;
+      letter-spacing: -0.075em !important;
+    }
+
+    .hero-arrow {
+      animation: scrollCue 1.35s ease-in-out infinite;
+      transform-origin: center;
+    }
+
+    @keyframes scrollCue {
+      0%, 100% {
+        transform: rotate(90deg) translateX(0);
+      }
+      50% {
+        transform: rotate(90deg) translateX(16px);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .hero-over {
+        font-size: clamp(56px, 11vw, 86px) !important;
+        right: 7% !important;
+        bottom: 9% !important;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .hero-over {
+        font-size: 54px !important;
+        max-width: 360px !important;
+      }
+
+      @keyframes scrollCue {
+        0%, 100% {
+          transform: rotate(90deg) translateX(0);
+        }
+        50% {
+          transform: rotate(90deg) translateX(12px);
+        }
+      }
+    }
+
+  
+    /* Custom Instagram-like animated scroll glyph */
+    .hero-arrow {
+      position: relative !important;
+      margin-top: 116px !important;
+      width: 78px !important;
+      height: 96px !important;
+      transform: none !important;
+      animation: scrollGlyphMove 1.45s ease-in-out infinite !important;
+    }
+
+    .hero-arrow::before {
+      content: "" !important;
+      position: absolute !important;
+      left: 50% !important;
+      top: 0 !important;
+      width: 13px !important;
+      height: 92px !important;
+      transform: translateX(-50%) !important;
+      background: #050505 !important;
+      border-radius: 999px !important;
+    }
+
+    .hero-arrow::after {
+      content: "" !important;
+      position: absolute !important;
+      left: 50% !important;
+      bottom: 0 !important;
+      width: 78px !important;
+      height: 38px !important;
+      transform: translateX(-50%) !important;
+      background: #050505 !important;
+      border-radius: 0 0 999px 999px !important;
+      clip-path: polygon(0 46%, 38% 46%, 38% 0, 62% 0, 62% 46%, 100% 46%, 100% 72%, 0 72%) !important;
+    }
+
+    @keyframes scrollGlyphMove {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(18px);
+      }
+    }
+
+    @media (max-width: 620px) {
+      .hero-arrow {
+        width: 62px !important;
+        height: 78px !important;
+        margin-top: 78px !important;
+      }
+
+      .hero-arrow::before {
+        width: 10px !important;
+        height: 74px !important;
+      }
+
+      .hero-arrow::after {
+        width: 62px !important;
+        height: 31px !important;
+      }
+    }
+
+  
+    /* Restore previous arrow, keep larger Instagram-like size */
+    .hero-arrow {
+      margin-top: 116px !important;
+      font-size: 86px !important;
+      line-height: 1 !important;
+      font-weight: 400 !important;
+      width: 92px !important;
+      height: auto !important;
+      color: #050505 !important;
+      transform: rotate(90deg) !important;
+      animation: previousArrowMove 1.45s ease-in-out infinite !important;
+    }
+
+    .hero-arrow::before,
+    .hero-arrow::after {
+      display: none !important;
+      content: none !important;
+    }
+
+    @keyframes previousArrowMove {
+      0%, 100% {
+        transform: rotate(90deg) translateX(0);
+      }
+      50% {
+        transform: rotate(90deg) translateX(18px);
+      }
+    }
+
+    @media (max-width: 620px) {
+      .hero-arrow {
+        font-size: 68px !important;
+        width: 74px !important;
+        margin-top: 78px !important;
+      }
+    }
+
+  
+    /* Fix arrow animation */
+    .hero-arrow {
+      display: inline-block !important;
+      animation: arrowScrollMove 1.35s ease-in-out infinite !important;
+      will-change: transform !important;
+      transform-origin: center center !important;
+    }
+
+    @keyframes arrowScrollMove {
+      0%, 100% {
+        transform: rotate(90deg) translateX(0);
+      }
+      50% {
+        transform: rotate(90deg) translateX(18px);
+      }
+    }
+
+    @media (max-width: 620px) {
+      @keyframes arrowScrollMove {
+        0%, 100% {
+          transform: rotate(90deg) translateX(0);
+        }
+        50% {
+          transform: rotate(90deg) translateX(12px);
+        }
+      }
+    }
+
+  
+    /* Final arrow animation fix: rotate the wrapper, move the inner arrow */
+    .hero-arrow {
+      display: inline-block !important;
+      margin-top: 116px !important;
+      width: 96px !important;
+      height: 96px !important;
+      font-size: 86px !important;
+      line-height: 1 !important;
+      font-weight: 400 !important;
+      color: #050505 !important;
+      transform: rotate(90deg) !important;
+      animation: none !important;
+      overflow: visible !important;
+    }
+
+    .hero-arrow span {
+      display: inline-block !important;
+      animation: arrowInnerMove 1.15s ease-in-out infinite !important;
+      will-change: transform !important;
+    }
+
+    .hero-arrow::before,
+    .hero-arrow::after {
+      display: none !important;
+      content: none !important;
+    }
+
+    @keyframes arrowInnerMove {
+      0%, 100% {
+        transform: translateX(0);
+      }
+      50% {
+        transform: translateX(22px);
+      }
+    }
+
+    @media (max-width: 620px) {
+      .hero-arrow {
+        font-size: 68px !important;
+        width: 76px !important;
+        height: 76px !important;
+        margin-top: 78px !important;
+      }
+
+      @keyframes arrowInnerMove {
+        0%, 100% {
+          transform: translateX(0);
+        }
+        50% {
+          transform: translateX(15px);
+        }
+      }
+    }
+
+  
+    /* Nav cleanup: logo only, no menu, no Eluven text, consistent legal links */
+    .nav {
+      background: rgba(255,255,255,.88) !important;
+    }
+
+    .nav-inner {
+      align-items: center !important;
+    }
+
+    .menu,
+    .app-icon {
+      display: none !important;
+    }
+
+    .brand.logo-only {
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 0 !important;
+      font-size: 0 !important;
+      line-height: 0 !important;
+    }
+
+    .brand.logo-only img {
+      width: 42px !important;
+      height: 42px !important;
+      border-radius: 10px !important;
+      object-fit: cover !important;
+      display: block !important;
+    }
+
+    .nav-right {
+      display: flex !important;
+      align-items: center !important;
+      gap: 34px !important;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+    }
+
+    .nav-right a {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+      font-size: 18px !important;
+      line-height: 1 !important;
+      font-weight: 400 !important;
+      letter-spacing: -0.035em !important;
+      color: #111 !important;
+      opacity: 1 !important;
+      text-transform: none !important;
+    }
+
+    .nav-right a:hover {
+      opacity: .55 !important;
+    }
+
+    @media (max-width: 620px) {
+      .brand.logo-only img {
+        width: 36px !important;
+        height: 36px !important;
+      }
+
+      .nav-right {
+        gap: 18px !important;
+      }
+
+      .nav-right a {
+        display: inline-block !important;
+        font-size: 15px !important;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .nav-right {
+        gap: 12px !important;
+      }
+
+      .nav-right a {
+        font-size: 13px !important;
+      }
+    }
+
+  
+    /* Ensure uploaded logo is visible */
+    .brand.logo-only img {
+      width: 52px !important;
+      height: 52px !important;
+      border-radius: 0 !important;
+      object-fit: contain !important;
+      background: transparent !important;
+    }
+
+    @media (max-width: 620px) {
+      .brand.logo-only img {
+        width: 44px !important;
+        height: 44px !important;
+      }
+    }
+
+  
+    /* Logo corner refinement */
+    .brand.logo-only img {
+      border-radius: 12px !important;
+      overflow: hidden !important;
+    }
+
+    .footer-logo img {
+      border-radius: 12px !important;
+      overflow: hidden !important;
+    }
+
+  
+    /* Download buttons with iOS / Android icons */
+    .download {
+      padding: 116px 24px 92px !important;
+      text-align: center !important;
+      background: #fff !important;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+    }
+
+    .download h2 {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+      font-weight: 400 !important;
+      letter-spacing: -0.075em !important;
+      font-size: clamp(34px, 3.7vw, 62px) !important;
+      line-height: 1 !important;
+      color: #111 !important;
+    }
+
+    .store-buttons {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 14px !important;
+      margin-top: 28px !important;
+      flex-wrap: wrap !important;
+    }
+
+    .store {
+      min-height: 64px !important;
+      padding: 0 22px !important;
+      border-radius: 14px !important;
+      background: #050505 !important;
+      color: #fff !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 13px !important;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+      font-size: 22px !important;
+      line-height: 1 !important;
+      font-weight: 400 !important;
+      letter-spacing: -0.045em !important;
+      border: 1px solid #050505 !important;
+    }
+
+    .store small {
+      display: block !important;
+      font-size: 12px !important;
+      line-height: 1.1 !important;
+      font-weight: 400 !important;
+      letter-spacing: -0.02em !important;
+      opacity: .78 !important;
+      margin-bottom: 4px !important;
+      text-align: left !important;
+    }
+
+    .store-icon {
+      width: 28px !important;
+      height: 28px !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      flex: 0 0 auto !important;
+    }
+
+    .store-icon svg {
+      width: 100% !important;
+      height: 100% !important;
+      fill: currentColor !important;
+    }
+
+    .store-android.is-disabled {
+      background: #f4f4f4 !important;
+      color: #111 !important;
+      border-color: #e6e6e6 !important;
+      cursor: default !important;
+    }
+
+    .store-android.is-disabled small {
+      opacity: .55 !important;
+    }
+
+    @media (max-width: 520px) {
+      .store {
+        width: min(100%, 280px) !important;
+      }
+
+      .store-buttons {
+        flex-direction: column !important;
+      }
+    }
+
+  
+    /* Google Play-style icon sizing */
+    .store-icon.play-icon {
+      width: 34px !important;
+      height: 34px !important;
+    }
+
+    .store-icon.play-icon svg {
+      width: 34px !important;
+      height: 34px !important;
+      fill: none !important;
+      display: block !important;
+    }
+
+    .store-android.is-disabled {
+      opacity: 1 !important;
+    }
+
+  
+    /* Footer: keep previous layout, remove only Languages column */
+    .footer-grid {
+      grid-template-columns: 1.1fr 1.1fr 1.25fr 1fr 1fr !important;
+      width: min(1120px, calc(100% - 80px)) !important;
+    }
+
+    @media (max-width: 1100px) {
+      .footer-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .footer-grid {
+        width: min(100% - 48px, 1120px) !important;
+        grid-template-columns: 1fr !important;
+      }
+    }
+
+  
+    /* Footer: remove Faith column, keep previous footer style */
+    .footer-grid {
+      grid-template-columns: 1.1fr 1.1fr 1fr 1fr !important;
+      width: min(920px, calc(100% - 80px)) !important;
+    }
+
+    @media (max-width: 1100px) {
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .footer-grid {
+        width: min(100% - 48px, 920px) !important;
+        grid-template-columns: 1fr !important;
+      }
+    }
+
+  
+    /* Footer title consistency: remove logo icon and match other footer headings */
+    .footer-logo,
+    .footer-logo img {
+      display: none !important;
+    }
+
+    .footer-title {
+      display: block !important;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+      font-size: 24px !important;
+      line-height: 1.2 !important;
+      font-weight: 500 !important;
+      letter-spacing: -0.055em !important;
+      color: #111 !important;
+      margin-bottom: 18px !important;
+    }
+
+  
+    /* Footer section links match website sectioning */
+    #daily-prayer,
+    #scripture,
+    #sunday-sermon,
+    #guidance {
+      scroll-margin-top: 110px;
+    }
+
+  
+
+    :root {
+      --text: #111111;
+      --muted: #8f8f8f;
+      --pink: #ff2a8a;
+      --orange: #ff7a00;
+      --line: rgba(0,0,0,.22);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      color: var(--text);
+      background: #fff;
+      letter-spacing: -0.035em;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .article-nav {
+      width: min(940px, calc(100% - 48px));
+      margin: 0 auto;
+      padding: 42px 0 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .article-logo img {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      object-fit: contain;
+      display: block;
+    }
+
+    .article-nav-right {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      font-size: 14px;
+      letter-spacing: -0.02em;
+    }
+
+    .article-nav-right img {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      object-fit: contain;
+    }
+
+    .article-shell {
+      width: min(940px, calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 10px;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: -0.025em;
+    }
+
+    .article-hero {
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 70px;
+      align-items: start;
+      padding: 38px 0 45px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 22px;
+      padding: 0 8px;
+      border-radius: 5px;
+      background: #6d39ff;
+      color: white;
+      font-size: 11px;
+      line-height: 1;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .article-title {
+      margin: 0;
+      max-width: 560px;
+      font-size: clamp(46px, 5.2vw, 72px);
+      line-height: .94;
+      letter-spacing: -0.08em;
+      font-weight: 400;
+    }
+
+    .article-subtitle {
+      margin: 20px 0 0;
+      max-width: 580px;
+      font-size: 21px;
+      line-height: 1.35;
+      color: #333;
+      letter-spacing: -0.045em;
+    }
+
+    .share-icons {
+      display: flex;
+      gap: 9px;
+      margin-top: 22px;
+    }
+
+    .share-icons a {
+      width: 26px;
+      height: 26px;
+      border-radius: 999px;
+      background: #050505;
+      color: white;
+      display: grid;
+      place-items: center;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .hero-card {
+      background:
+        radial-gradient(circle at 52% 40%, rgba(201,233,151,.48), transparent 12rem),
+        linear-gradient(135deg, #070707, #141414);
+      border-radius: 8px;
+      min-height: 420px;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero-card img {
+      width: min(260px, 68%);
+      filter: drop-shadow(0 24px 50px rgba(0,0,0,.45));
+    }
+
+    .hero-card-title {
+      position: absolute;
+      left: 28px;
+      bottom: 28px;
+      color: white;
+      font-size: 46px;
+      line-height: .92;
+      letter-spacing: -0.08em;
+      font-weight: 400;
+      max-width: 300px;
+    }
+
+    .posted {
+      margin: 38px 0 0;
+      color: #555;
+      font-size: 12px;
+      letter-spacing: -0.02em;
+    }
+
+    .article-body {
+      width: min(620px, 100%);
+      margin: 46px auto 0;
+      padding-bottom: 90px;
+    }
+
+    .article-body p,
+    .article-body li {
+      font-size: 17px;
+      line-height: 1.62;
+      letter-spacing: -0.025em;
+      color: #181818;
+    }
+
+    .article-body p {
+      margin: 0 0 28px;
+    }
+
+    .article-body h2 {
+      margin: 72px 0 24px;
+      font-size: 34px;
+      line-height: 1.05;
+      letter-spacing: -0.06em;
+      font-weight: 400;
+    }
+
+    .article-body h3 {
+      margin: 38px 0 10px;
+      font-size: 22px;
+      line-height: 1.1;
+      letter-spacing: -0.05em;
+      font-weight: 500;
+    }
+
+    .article-body ul {
+      margin: 0 0 32px;
+      padding-left: 20px;
+    }
+
+    .article-body strong {
+      font-weight: 600;
+    }
+
+    .gradient {
+      background: linear-gradient(90deg, #ff7a00, #ff2a8a 45%, #c800ff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .quote {
+      margin: 48px auto;
+      padding: 28px 0;
+      border-top: 1px solid rgba(0,0,0,.12);
+      border-bottom: 1px solid rgba(0,0,0,.12);
+      text-align: center;
+      font-size: 26px;
+      line-height: 1.25;
+      letter-spacing: -0.055em;
+      color: #111;
+    }
+
+    .more-line {
+      width: min(940px, calc(100% - 48px));
+      margin: 0 auto;
+      border-top: 1px solid var(--line);
+      padding: 28px 0 0;
+      font-size: 32px;
+      letter-spacing: -0.065em;
+      font-weight: 400;
+    }
+
+    .download-mini {
+      text-align: center;
+      padding: 44px 24px 60px;
+    }
+
+    .download-mini h2 {
+      margin: 0;
+      font-size: 38px;
+      line-height: 1.02;
+      letter-spacing: -0.075em;
+      font-weight: 400;
+    }
+
+    .store-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 22px;
+      flex-wrap: wrap;
+    }
+
+    .store {
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 0 14px;
+      border-radius: 9px;
+      background: #050505;
+      color: white;
+      font-size: 14px;
+      letter-spacing: -0.03em;
+    }
+
+    .store svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+
+    .store.disabled {
+      background: #f2f2f2;
+      color: #111;
+      border: 1px solid #e5e5e5;
+    }
+
+    .footer {
+      width: min(940px, calc(100% - 48px));
+      margin: 0 auto;
+      padding: 36px 0 54px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 38px;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .footer-grid strong {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 15px;
+      font-weight: 500;
+      letter-spacing: -0.04em;
+      color: #111;
+    }
+
+    .footer-grid a {
+      display: block;
+      color: #9a9a9a;
+      letter-spacing: -0.03em;
+    }
+
+    .footer-socials {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin: 48px 0 20px;
+    }
+
+    .footer-socials a {
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      background: #050505;
+      color: white;
+      display: grid;
+      place-items: center;
+    }
+
+    .footer-socials svg {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: center;
+      gap: 28px;
+      flex-wrap: wrap;
+      color: #aaa;
+      font-size: 12px;
+      letter-spacing: -0.02em;
+    }
+
+    @media (max-width: 900px) {
+      .article-hero {
+        grid-template-columns: 1fr;
+        gap: 34px;
+      }
+
+      .hero-card {
+        min-height: 360px;
+      }
+
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 560px) {
+      .article-nav,
+      .article-shell,
+      .footer,
+      .more-line {
+        width: min(100% - 32px, 940px);
+      }
+
+      .article-title {
+        font-size: 44px;
+      }
+
+      .article-body p,
+      .article-body li {
+        font-size: 16px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Instagram article scale correction */
+    .article-nav,
+    .article-shell,
+    .footer,
+    .more-line {
+      width: min(1560px, calc(100% - 96px)) !important;
+    }
+
+    .article-nav {
+      padding: 44px 0 34px !important;
+    }
+
+    .article-logo img {
+      width: 58px !important;
+      height: 58px !important;
+      border-radius: 12px !important;
+    }
+
+    .article-nav-right {
+      font-size: 16px !important;
+      gap: 24px !important;
+    }
+
+    .article-nav-right img {
+      width: 42px !important;
+      height: 42px !important;
+    }
+
+    .back-link {
+      font-size: 18px !important;
+      margin-top: 18px !important;
+      letter-spacing: -0.035em !important;
+    }
+
+    .article-hero {
+      grid-template-columns: minmax(560px, 1fr) 760px !important;
+      gap: 96px !important;
+      padding: 54px 0 70px !important;
+      align-items: start !important;
+    }
+
+    .pill {
+      min-height: 30px !important;
+      padding: 0 11px !important;
+      border-radius: 7px !important;
+      font-size: 14px !important;
+      margin-bottom: 28px !important;
+    }
+
+    .article-title {
+      max-width: 760px !important;
+      font-size: clamp(72px, 5.9vw, 118px) !important;
+      line-height: .95 !important;
+      letter-spacing: -0.086em !important;
+      font-weight: 400 !important;
+    }
+
+    .article-subtitle {
+      max-width: 760px !important;
+      margin-top: 28px !important;
+      font-size: 30px !important;
+      line-height: 1.28 !important;
+      letter-spacing: -0.06em !important;
+    }
+
+    .share-icons {
+      gap: 12px !important;
+      margin-top: 30px !important;
+    }
+
+    .share-icons a {
+      width: 38px !important;
+      height: 38px !important;
+      font-size: 19px !important;
+    }
+
+    .posted {
+      margin-top: 300px !important;
+      font-size: 16px !important;
+      letter-spacing: -0.035em !important;
+    }
+
+    .hero-card {
+      width: 760px !important;
+      min-height: 660px !important;
+      border-radius: 9px !important;
+    }
+
+    .hero-card img {
+      width: min(390px, 68%) !important;
+    }
+
+    .hero-card-title {
+      left: 42px !important;
+      bottom: 42px !important;
+      font-size: 78px !important;
+      line-height: .92 !important;
+      max-width: 480px !important;
+    }
+
+    .article-body {
+      width: min(760px, 100%) !important;
+      margin-top: 72px !important;
+      padding-bottom: 120px !important;
+    }
+
+    .article-body p,
+    .article-body li {
+      font-size: 23px !important;
+      line-height: 1.58 !important;
+      letter-spacing: -0.04em !important;
+    }
+
+    .article-body p {
+      margin-bottom: 38px !important;
+    }
+
+    .article-body h2 {
+      margin: 92px 0 30px !important;
+      font-size: 44px !important;
+      line-height: 1.05 !important;
+      letter-spacing: -0.065em !important;
+      font-weight: 400 !important;
+    }
+
+    .article-body h3 {
+      margin: 50px 0 14px !important;
+      font-size: 30px !important;
+      line-height: 1.08 !important;
+      letter-spacing: -0.06em !important;
+    }
+
+    .quote {
+      margin: 64px auto !important;
+      padding: 38px 0 !important;
+      font-size: 34px !important;
+      line-height: 1.2 !important;
+      letter-spacing: -0.065em !important;
+    }
+
+    .more-line {
+      padding-top: 36px !important;
+      font-size: 48px !important;
+      letter-spacing: -0.075em !important;
+    }
+
+    .download-mini {
+      padding: 58px 24px 74px !important;
+    }
+
+    .download-mini h2 {
+      font-size: 54px !important;
+      letter-spacing: -0.08em !important;
+    }
+
+    .store {
+      min-height: 52px !important;
+      padding: 0 20px !important;
+      font-size: 18px !important;
+      border-radius: 10px !important;
+    }
+
+    .store svg {
+      width: 25px !important;
+      height: 25px !important;
+    }
+
+    .footer {
+      padding-top: 50px !important;
+    }
+
+    .footer-grid {
+      gap: 58px !important;
+      font-size: 17px !important;
+      line-height: 1.78 !important;
+    }
+
+    .footer-grid strong {
+      font-size: 21px !important;
+      margin-bottom: 16px !important;
+      letter-spacing: -0.05em !important;
+    }
+
+    .footer-grid a {
+      font-size: 17px !important;
+      letter-spacing: -0.04em !important;
+    }
+
+    .footer-socials a {
+      width: 38px !important;
+      height: 38px !important;
+    }
+
+    .footer-socials svg {
+      width: 21px !important;
+      height: 21px !important;
+    }
+
+    .footer-bottom {
+      font-size: 15px !important;
+    }
+
+    @media (max-width: 1200px) {
+      .article-hero {
+        grid-template-columns: 1fr !important;
+        gap: 46px !important;
+      }
+
+      .posted {
+        margin-top: 54px !important;
+      }
+
+      .hero-card {
+        width: 100% !important;
+        min-height: 560px !important;
+      }
+
+      .article-title {
+        max-width: 980px !important;
+        font-size: clamp(64px, 9vw, 100px) !important;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .article-nav,
+      .article-shell,
+      .footer,
+      .more-line {
+        width: min(100% - 36px, 1560px) !important;
+      }
+
+      .article-title {
+        font-size: clamp(46px, 14vw, 70px) !important;
+      }
+
+      .article-subtitle {
+        font-size: 23px !important;
+      }
+
+      .hero-card {
+        min-height: 420px !important;
+      }
+
+      .hero-card-title {
+        font-size: 54px !important;
+      }
+
+      .article-body p,
+      .article-body li {
+        font-size: 19px !important;
+      }
+
+      .article-body h2 {
+        font-size: 36px !important;
+      }
+
+      .more-line {
+        font-size: 34px !important;
+      }
+
+      .download-mini h2 {
+        font-size: 38px !important;
+      }
+    }
+
+  
+    /* Use the same fixed homepage header on article pages */
+    .article-nav {
+      display: none !important;
+    }
+
+    .nav {
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      z-index: 50 !important;
+      padding: 24px 0 !important;
+      background: rgba(255,255,255,.88) !important;
+      backdrop-filter: blur(18px) !important;
+      border-bottom: 1px solid rgba(0,0,0,0) !important;
+      transition: .2s ease !important;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+    }
+
+    .nav.scrolled {
+      padding: 14px 0 !important;
+      border-bottom-color: rgba(0,0,0,.08) !important;
+    }
+
+    .nav-inner {
+      width: min(1180px, calc(100% - 56px)) !important;
+      margin: 0 auto !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+    }
+
+    .brand.logo-only {
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 0 !important;
+      font-size: 0 !important;
+      line-height: 0 !important;
+    }
+
+    .brand.logo-only img {
+      width: 52px !important;
+      height: 52px !important;
+      border-radius: 12px !important;
+      object-fit: contain !important;
+      display: block !important;
+      background: transparent !important;
+    }
+
+    .nav-right {
+      display: flex !important;
+      align-items: center !important;
+      gap: 34px !important;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+    }
+
+    .nav-right a {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+      font-size: 18px !important;
+      line-height: 1 !important;
+      font-weight: 400 !important;
+      letter-spacing: -0.035em !important;
+      color: #111 !important;
+      opacity: 1 !important;
+      text-transform: none !important;
+    }
+
+    .nav-right a:hover {
+      opacity: .55 !important;
+    }
+
+    .article-shell {
+      padding-top: 120px !important;
+    }
+
+    @media (max-width: 620px) {
+      .nav-inner {
+        width: calc(100% - 28px) !important;
+      }
+
+      .brand.logo-only img {
+        width: 44px !important;
+        height: 44px !important;
+      }
+
+      .nav-right {
+        gap: 18px !important;
+      }
+
+      .nav-right a {
+        font-size: 15px !important;
+      }
+
+      .article-shell {
+        padding-top: 100px !important;
+      }
+    }
+
+  
+    /* Article page fixes requested */
+    .pill {
+      display: none !important;
+    }
+
+    .share-icons a {
+      font-size: 0 !important;
+    }
+
+    .share-icons a svg {
+      width: 20px !important;
+      height: 20px !important;
+      fill: currentColor !important;
+      display: block !important;
+    }
+
+    .article-create-line {
+      width: min(1560px, calc(100% - 96px));
+      margin: 0 auto;
+      padding: 78px 0 36px;
+      font-size: clamp(42px, 4vw, 74px);
+      line-height: 1;
+      letter-spacing: -0.082em;
+      font-weight: 400;
+      border-bottom: 1px solid rgba(0,0,0,.22);
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+
+    .article-download-wrap .download {
+      padding-top: 44px !important;
+    }
+
+    .more-line,
+    .download-mini,
+    .footer {
+      display: none !important;
+    }
+
+    @media (max-width: 700px) {
+      .article-create-line {
+        width: min(100% - 36px, 1560px);
+        font-size: clamp(34px, 10vw, 48px);
+        padding: 58px 0 28px;
+      }
+    }
+
+  
+    /* Final legal page hero images */
+    .hero-card.custom-image-card {
+      background: transparent !important;
+      overflow: hidden !important;
+      display: block !important;
+      padding: 0 !important;
+    }
+
+    .hero-card.custom-image-card img {
+      width: 100% !important;
+      height: 100% !important;
+      max-width: none !important;
+      object-fit: cover !important;
+      object-position: center center !important;
+      filter: none !important;
+      display: block !important;
+    }
+
   </style>
 </head>
 <body>
-  <h1>Terms of Use</h1>
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="brand logo-only" aria-label="Eluven home">
+        <img src="data:image/png;base64,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" alt="Eluven logo">
+      </a>
+      <div class="nav-right">
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="support.html">Support</a>
+      </div>
+    </div>
+  </nav>
+<main class="article-shell">
+    <a class="back-link" href="index.html">← Back to home</a>
 
-  <h2>Welcome to Eluven</h2>
-  <p>By using Eluven, you agree to these Terms of Use. Please read them carefully before using the app.</p>
+    <section class="article-hero">
+      <div>
+        
+        <h1 class="article-title">Terms of Use</h1>
+        <p class="article-subtitle">The terms that apply when using Eluven to explore Scripture, prayer, guidance and sermons.</p>
+        <div class="share-icons" aria-label="Social links">
+          <a href="https://www.instagram.com/eluvenapp/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.8 2h8.4A5.8 5.8 0 0 1 22 7.8v8.4A5.8 5.8 0 0 1 16.2 22H7.8A5.8 5.8 0 0 1 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2Zm0 2A3.8 3.8 0 0 0 4 7.8v8.4A3.8 3.8 0 0 0 7.8 20h8.4a3.8 3.8 0 0 0 3.8-3.8V7.8A3.8 3.8 0 0 0 16.2 4H7.8Zm8.9 1.7a1.3 1.3 0 1 1 0 2.6 1.3 1.3 0 0 1 0-2.6ZM12 7.2a4.8 4.8 0 1 1 0 9.6 4.8 4.8 0 0 1 0-9.6Zm0 2a2.8 2.8 0 1 0 0 5.6 2.8 2.8 0 0 0 0-5.6Z"/></svg></a>
+          <a href="https://threads.com/@eluvenapp?igshid=NTc4MTIwNjQ2YQ==" target="_blank" rel="noopener" aria-label="Threads"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.1 2C6.4 2 3.2 5.7 3.2 12.1c0 6.2 3.3 9.9 8.9 9.9 4.9 0 8.1-2.8 8.1-6.7 0-3-1.8-5.1-5.2-5.8-.3-2.1-1.6-3.3-3.9-3.3-2.2 0-3.8 1.2-4.6 3.1l2 .9c.5-1.1 1.2-1.8 2.5-1.8 1.1 0 1.8.5 2 1.5h-1.5c-3.2 0-5.1 1.5-5.1 3.8 0 2.1 1.7 3.7 4.3 3.7 2.4 0 4.1-1.3 4.4-3.6 1.4.5 2.1 1.4 2.1 2.7 0 2.2-1.9 3.7-5.1 3.7-4.2 0-6.6-2.8-6.6-8 0-5.2 2.3-8.1 6.6-8.1 3.2 0 5.2 1.5 6 4.5l2.1-.6C19.1 4 16.3 2 12.1 2Zm-.9 13.2c-1.3 0-2.1-.6-2.1-1.6 0-1.1.9-1.7 2.6-1.7h1.5v.2c0 2-1 3.1-3 3.1Z"/></svg></a>
+          <a href="https://www.tiktok.com/@eluvenbible?_r=1&_t=ZG-96nAMJFomzQ" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.6 2c.4 3.1 2.1 5 5.1 5.2v3.4c-1.8.1-3.4-.5-5-1.6v6.6c0 4.3-2.8 6.4-6.1 6.4-3.4 0-6.2-2.4-6.2-5.8 0-3.7 2.9-6 6.7-5.8v3.5c-1.7-.2-3.1.6-3.1 2.2 0 1.4 1.1 2.3 2.5 2.3 1.5 0 2.5-.8 2.5-2.9V2h3.6Z"/></svg></a>
+        </div>
+        <p class="posted">◎ Last updated April 2026</p>
+      </div>
 
-  <h2>Use of the App</h2>
-  <p>Eluven is designed to help you explore and understand the Bible. The app is intended for personal, non-commercial use. You may not reproduce, distribute, or modify any content from this app without prior written permission.</p>
+      <div class="hero-card custom-image-card">
+        <img src="terms-hero.png" alt="Terms hero illustration">
+      </div>
+    </section>
 
-  <h2>Bible Content</h2>
-  <p>The Bible text used in this app is sourced from the King James Version (KJV), which is in the public domain. Chapter and verse explanations are provided to help make Scripture easier to understand and are not a replacement for pastoral or theological guidance.</p>
+    <article class="article-body">
+      
+<p>Welcome to <span class="gradient">Eluven</span>. By using Eluven, you agree to these Terms of Use. Please read them carefully before using the app.</p>
 
-  <h2>Privacy</h2>
-  <p>We respect your privacy. We do not collect personally identifiable information without your consent. Please review our <a href="/privacy.html">Privacy Policy</a> for full details on how we handle your data.</p>
+<h2>Use of the App</h2>
+<p>Eluven is designed to help you explore and understand the Bible. The app is intended for personal, non-commercial use.</p>
 
-  <h2>Notifications</h2>
-  <p>If you enable push notifications, we may send you daily prayers, reminders, and updates. You can disable notifications at any time in the app settings or your device settings.</p>
+<p>You may not reproduce, distribute or modify any content from this app without prior written permission.</p>
 
-  <h2>Changes to Terms</h2>
-  <p>We reserve the right to update these Terms of Use at any time. Continued use of the app after changes are made constitutes your acceptance of the new terms.</p>
+<h2>Bible Content</h2>
+<p>The Bible text used in this app is sourced from the King James Version (KJV), which is in the public domain.</p>
 
-  <h2>Contact</h2>
-  <p>If you have any questions about these Terms of Use, please contact us at <a href="mailto:eluvenapp@gmail.com">eluvenapp@gmail.com</a>.</p>
+<div class="quote">“Chapter and verse explanations help make Scripture easier to understand.”</div>
 
-  <p style="margin-top: 40px; color: rgba(255,255,255,0.4); font-size: 14px;">Last updated: April 2026</p>
+<p>These explanations are provided for learning and reflection. They are not a replacement for pastoral, spiritual or theological guidance.</p>
+
+<h2>Privacy</h2>
+<p>We respect your privacy. We do not collect personally identifiable information without your consent. Please review our Privacy Policy for full details on how we handle your data.</p>
+
+<h2>Notifications</h2>
+<p>If you enable push notifications, we may send you daily prayers, reminders and updates. You can disable notifications at any time in the app settings or your device settings.</p>
+
+<h2>Changes to Terms</h2>
+<p>We reserve the right to update these Terms of Use at any time. Continued use of the app after changes are made constitutes your acceptance of the new terms.</p>
+
+<h2>Contact</h2>
+<p>If you have any questions about these Terms of Use, contact us at <span class="gradient">eluvenapp@gmail.com</span>.</p>
+
+    </article>
+  </main>
+  <section class="article-create-line">Create, read and live God’s Word.</section>
+
+  <div class="article-download-wrap">
+    <section class="download" id="download">
+      <h2>Download for iOS/Android.</h2>
+      <div class="store-buttons">
+        <a class="store store-ios" href="https://apps.apple.com/app/id6761909794" target="_blank" rel="noopener" aria-label="Download on the App Store">
+          <span class="store-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M16.7 12.7c0-2.7 2.2-4 2.3-4.1-1.3-1.9-3.2-2.1-3.8-2.2-1.6-.2-3.1.9-3.9.9-.8 0-2.1-.9-3.4-.9-1.8 0-3.4 1-4.3 2.6-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.3 2.5 1.3-.1 1.8-.8 3.4-.8 1.6 0 2 .8 3.4.8 1.4 0 2.3-1.2 3.2-2.5 1-1.4 1.4-2.8 1.4-2.9-.1 0-2.8-1.1-2.9-3.6ZM14.2 4.7c.7-.9 1.2-2.1 1.1-3.3-1.1 0-2.4.7-3.1 1.6-.7.8-1.3 2-1.1 3.2 1.2.1 2.4-.6 3.1-1.5Z"/></svg>
+          </span>
+          <span>
+            <small>Download on the</small>
+            App Store
+          </span>
+        </a>
+
+        <div class="store store-android is-disabled" aria-label="Android coming soon">
+          <span class="store-icon play-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48">
+              <defs>
+                <linearGradient id="playA" x1="7" y1="4" x2="30" y2="25" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#00F0FF"/>
+                  <stop offset="1" stop-color="#00C853"/>
+                </linearGradient>
+                <linearGradient id="playB" x1="16" y1="18" x2="39" y2="24" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#FFD600"/>
+                  <stop offset="1" stop-color="#FF9100"/>
+                </linearGradient>
+                <linearGradient id="playC" x1="7" y1="44" x2="30" y2="23" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#FF1744"/>
+                  <stop offset="1" stop-color="#D500F9"/>
+                </linearGradient>
+              </defs>
+              <path d="M7 5.8c0-1.7 1.8-2.8 3.3-1.9l22.4 12.9-8.6 8.6L7 5.8Z" fill="url(#playA)"/>
+              <path d="M32.7 16.8 41 21.6c1.6.9 1.6 3.2 0 4.1l-8.3 4.8-8.6-5.1 8.6-8.6Z" fill="url(#playB)"/>
+              <path d="M7 42.2V5.8l17.1 19.6L7 42.2Z" fill="#00B0FF"/>
+              <path d="M7 42.2c0 1.7 1.8 2.8 3.3 1.9l22.4-13.6-8.6-5.1L7 42.2Z" fill="url(#playC)"/>
+            </svg>
+          </span>
+          <span>
+            <small>Android</small>
+            Coming soon
+          </span>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <strong class="footer-title">Eluven</strong>
+        <a href="index.html">Home</a>
+        <a href="https://apps.apple.com/app/id6761909794" target="_blank" rel="noopener">Download</a>
+        <a href="mailto:eluvenapp@gmail.com">Contact</a>
+      </div>
+
+      <div>
+        <strong>Features</strong>
+        <a href="#daily-prayer">Daily Prayer</a>
+        <a href="#scripture">Scripture</a>
+        <a href="#sunday-sermon">Sunday Sermon</a>
+        <a href="#guidance">Guidance</a>
+      </div>
+
+      <div>
+        <strong>Support</strong>
+        <a href="support.html">Support</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+      </div>
+
+      <div>
+        <strong>Connect</strong>
+        <a href="https://www.instagram.com/eluvenapp/" target="_blank" rel="noopener">Instagram↗</a>
+        <a href="https://threads.com/@eluvenapp?igshid=NTc4MTIwNjQ2YQ==" target="_blank" rel="noopener">Threads↗</a>
+        <a href="https://www.tiktok.com/@eluvenbible?_r=1&_t=ZG-96nAMJFomzQ" target="_blank" rel="noopener">TikTok↗</a>
+        <a href="mailto:eluvenapp@gmail.com">Email↗</a>
+      </div>
+    </div>
+
+    <div class="socials" aria-label="Social media links">
+      <a href="https://www.instagram.com/eluvenapp/" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.8 2h8.4A5.8 5.8 0 0 1 22 7.8v8.4A5.8 5.8 0 0 1 16.2 22H7.8A5.8 5.8 0 0 1 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2Zm0 2A3.8 3.8 0 0 0 4 7.8v8.4A3.8 3.8 0 0 0 7.8 20h8.4a3.8 3.8 0 0 0 3.8-3.8V7.8A3.8 3.8 0 0 0 16.2 4H7.8Zm8.9 1.7a1.3 1.3 0 1 1 0 2.6 1.3 1.3 0 0 1 0-2.6ZM12 7.2a4.8 4.8 0 1 1 0 9.6 4.8 4.8 0 0 1 0-9.6Zm0 2a2.8 2.8 0 1 0 0 5.6 2.8 2.8 0 0 0 0-5.6Z"/></svg>
+      </a>
+
+      <a href="https://threads.com/@eluvenapp?igshid=NTc4MTIwNjQ2YQ==" target="_blank" rel="noopener" aria-label="Threads">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.1 2C6.4 2 3.2 5.7 3.2 12.1c0 6.2 3.3 9.9 8.9 9.9 4.9 0 8.1-2.8 8.1-6.7 0-3-1.8-5.1-5.2-5.8-.3-2.1-1.6-3.3-3.9-3.3-2.2 0-3.8 1.2-4.6 3.1l2 .9c.5-1.1 1.2-1.8 2.5-1.8 1.1 0 1.8.5 2 1.5h-1.5c-3.2 0-5.1 1.5-5.1 3.8 0 2.1 1.7 3.7 4.3 3.7 2.4 0 4.1-1.3 4.4-3.6 1.4.5 2.1 1.4 2.1 2.7 0 2.2-1.9 3.7-5.1 3.7-4.2 0-6.6-2.8-6.6-8 0-5.2 2.3-8.1 6.6-8.1 3.2 0 5.2 1.5 6 4.5l2.1-.6C19.1 4 16.3 2 12.1 2Zm-.9 13.2c-1.3 0-2.1-.6-2.1-1.6 0-1.1.9-1.7 2.6-1.7h1.5v.2c0 2-1 3.1-3 3.1Z"/></svg>
+      </a>
+
+      <a href="https://www.tiktok.com/@eluvenbible?_r=1&_t=ZG-96nAMJFomzQ" target="_blank" rel="noopener" aria-label="TikTok">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.6 2c.4 3.1 2.1 5 5.1 5.2v3.4c-1.8.1-3.4-.5-5-1.6v6.6c0 4.3-2.8 6.4-6.1 6.4-3.4 0-6.2-2.4-6.2-5.8 0-3.7 2.9-6 6.7-5.8v3.5c-1.7-.2-3.1.6-3.1 2.2 0 1.4 1.1 2.3 2.5 2.3 1.5 0 2.5-.8 2.5-2.9V2h3.6Z"/></svg>
+      </a>
+    </div>
+
+    <div class="copyright">
+      <span>English (US)</span>
+      <span>© 2026 Eluven</span>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="support.html">Support</a>
+    </div>
+  </footer>
+
+
+  <script>
+    const nav = document.getElementById("nav");
+    const setNav = () => nav && nav.classList.toggle("scrolled", window.scrollY > 12);
+    setNav();
+    window.addEventListener("scroll", setNav);
+  </script>
+
 </body>
 </html>
