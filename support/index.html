@@ -648,9 +648,9 @@
     }
 
     .footer-grid {
-      width: min(1280px, calc(100% - 80px));
+      width: min(760px, calc(100% - 80px));
       display: grid;
-      grid-template-columns: 1.1fr 1.1fr 1.25fr 1.3fr 1fr 1fr;
+      grid-template-columns: 1.1fr 1.25fr 1fr !important; width: min(760px, calc(100% - 80px)) !important; margin: 0 auto !important;
       gap: 50px;
       text-align: left;
       font-size: 20px;
@@ -2883,7 +2883,7 @@
   </div>
 
   <footer>
-    <div class="footer-grid">
+    <div class="footer-grid" style="margin:0 auto; width:min(760px, calc(100% - 80px));">
       <div>
         <strong class="footer-title">Eluven</strong>
         <a href="/">Home</a>
@@ -2938,5 +2938,16 @@
     window.addEventListener("scroll", setNav);
   </script>
 
+<style>
+  .footer-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    width: 700px !important;
+    max-width: calc(100% - 48px) !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    text-align: left !important;
+  }
+</style>
 </body>
 </html>
